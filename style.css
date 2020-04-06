@@ -1,0 +1,13 @@
+/*
+Theme Name: PushClean
+Author: the SlicePlanet team
+Author URI: https://verstkovo.ru/
+Description: PushClean created 2020 year.
+Requires at least: WordPress 5.3.2
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: pushclean
+Tags: one-column, flexible-header, accessibility-ready, custom-menu, custom-logo, editor-style, featured-images, translation-ready
+*/
+@import "/css/style.css";
