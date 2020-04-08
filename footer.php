@@ -1,11 +1,6 @@
+<?php $f = get_field( 'footer' ); ?>
 <footer class="footer">
-	<div class="wrapper">
-		<div class="footer-content">
-			<a href="#" class="mobile-text">About Us</a>
-			<span class="mobile-text">|</span>
-			<a href="#">Terms & Conditions</a>
-			<span>|</span>
-			<a href="#">Privacy Policy</a>
-		</div>
-	</div>
+    <div class="wrapper">
+        <div class="footer-content"><?php the_footer_links($f); ?></div>
+    </div>
 </footer>

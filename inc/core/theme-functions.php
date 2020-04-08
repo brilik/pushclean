@@ -12,7 +12,6 @@ if ( ! function_exists( 'ar_the_view' ) ) {
 
 				throw new Exception( "The file {$file_name}.php not exists" );
 			}
-			global $args;
 			include "{$file_name}.php";
 		} catch ( Exception $e ) {
 			echo "Error: " . $e->getMessage();

@@ -1,10 +1,12 @@
 <?php
 define( 'VIEWS_DIR', get_template_directory() . '/template-parts/parts/' );
+require_once get_template_directory() . '/inc/Debug.php';
 require_once get_template_directory() . '/inc/core/theme-functions.php';
+
 add_action( 'wp_head', 'pushclear_enqueue_style' );
 function pushclear_enqueue_style() {
 	$theme_uri = get_template_directory_uri() . '/assets/';
-	wp_register_style( 'main', $theme_uri . 'css/style.css', [], null );
+	wp_register_style( 'main', get_stylesheet_uri() );
 	wp_enqueue_style( 'main' );
 }
 
@@ -32,4 +34,40 @@ function cc_mime_types( $file_types ) {
 	$file_types           = array_merge( $file_types, $new_filetypes );
 
 	return $file_types;
+}
+
+function the_footer_links($field){
+	if ( ! empty( $field ) ) {
+
+		$res = '';
+		foreach ( $field['list'] as $item ) {
+
+			$class = '';
+			$sep   = '';
+
+			if ( ! empty( $item['mobile'] ) ) {
+				$class = 'mobile-text';
+				$sep   = '<span class="mobile-text">|</span>';
+			}
+
+			$res .= "<a href=\"{$item['link']['url']}\" class=\"{$class}\" target=\"{$item['link']['target']}\">{$item['link']['title']}</a>";
+
+			if ( next( $field['list'] ) ) {
+
+				if ( empty( $sep ) ) {
+					$sep = '<span>|</span>';
+				}
+				$res .= $sep;
+			}
+		}
+
+		echo $res;
+	}
+}
+
+function the_head_title(){
+	$res = '';
+	$res .= get_bloginfo('title') . ' | ' . get_the_title();
+
+	echo $res;
 }

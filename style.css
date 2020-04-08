@@ -10,4 +10,7 @@ License URI: LICENSE
 Text Domain: pushclean
 Tags: one-column, flexible-header, accessibility-ready, custom-menu, custom-logo, editor-style, featured-images, translation-ready
 */
-@import "/css/style.css";
+@import "assets/css/style.css";
+
+.wpcf7-response-output,
+.wpcf7-not-valid-tip { display: none !important; }

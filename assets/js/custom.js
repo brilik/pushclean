@@ -18,7 +18,8 @@ $(window).on('load', function () {
 		}, 300);
 	};
 	setTimeout(function () {
-		$('body').removeClass('loaded'); 
+		$('body').removeClass('loaded');
+		for_wordpress();
 	}, 400);
 	
 });
@@ -39,7 +40,7 @@ function viewport(){
 
 $(function(){
 
-	
+
 	
 	/* placeholder*/	   
 	$('input, textarea').each(function(){
@@ -141,98 +142,6 @@ $(function(){
 	/*counter product*/  
 
 	/*form validation*/
-	if ($('.js--contact-form').length) {
-		$('.js--contact-form').each(function () {
-			$(this).validate({
-				rules: {
-					name: {
-						required: true,
-						minlength: 1
-					},
-					surname: {
-						required: true,
-						minlength: 1
-					},
-					tel: {
-						required: true
-					},
-					email: {
-						required: true,
-						minlength: 1,
-						email: true
-					}
-				},
-				messages: {
-					name: {
-						required: "",
-						minlength: ""
-					},
-					surname: {
-						required: "",
-						minlength: ""
-					},
-					tel: {
-						required: ""
-					},
-					email: {
-						required: "",
-						minlength: "",
-						email: ""
-					},
-				},
-
-				submitHandler: function (form) {
-				}
-			});
-		})
-	};
-
-	if ($('.js--contact-form2').length) {
-		$('.js--contact-form2').each(function () {
-			$(this).validate({
-				rules: {
-					name: {
-						required: true,
-						minlength: 1
-					},
-					surname: {
-						required: true,
-						minlength: 1
-					},
-					tel: {
-						required: true
-					},
-					email: {
-						required: true,
-						minlength: 1,
-						email: true
-					}
-				},
-				messages: {
-					name: {
-						required: "",
-						minlength: ""
-					},
-					surname: {
-						required: "",
-						minlength: ""
-					},
-					tel: {
-						required: ""
-					},
-					email: {
-						required: "",
-						minlength: "",
-						email: ""
-					},
-				},
-
-				submitHandler: function (form) {
-				}
-			});
-		})
-	};
-
 	if ($('.js--contact-form3').length) {
 		$('.js--contact-form3').each(function () {
 			$(this).validate({
@@ -364,5 +273,55 @@ var handler = function(){
 $(window).bind('load', handler);
 $(window).bind('resize', handler);
 
+function for_wordpress() {
+	language_polylang()
+	// form_ajax_sender()
+	// wpcf7_handler()
+	wpcf7_handler()
+}
+
+function language_polylang() {
+	var langList = $('.js--list-lang');
+	var curLang = langList.find('.current-lang');
+	// curLang.addClass('active');
+	langList.find('li').addClass('list-lang__item');
+	langList.find('a').addClass('list-lang__link');
+    $('.header-lang__title').text(curLang.text())
+}
+
+function wpcf7_handler(){
+    $(".wpcf7").on('wpcf7:mailsent', function(event){
+
+    	// remove focus
+        $(this).find('.box-field').each(function () {
+			$(this).removeClass('focused-field')
+			$(this).removeClass('filled-field')
+        })
+
+        // reset border
+        $(this).find('input').each(function (i,e) {
+            $(this).css('border','1px solid #D3D3D3')
+		})
+
+    })
+
+    $(".wpcf7").on('wpcf7:invalid', function(event){
+
+        form_show_error($(this))
+    })
+}
+
+function form_show_error(form) {
 
 
+    form.find('input').each(function (i,e) {
+
+    	if( $(this).next().length ){
+            $(this).css('border','1px solid red')
+        } else {
+            $(this).css('border','1px solid #D3D3D3')
+        }
+
+    })
+
+}

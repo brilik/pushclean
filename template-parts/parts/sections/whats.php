@@ -1,44 +1,38 @@
+<?php $f = get_field('whats'); ?>
 <!-- BEGIN WHATS -->
 <section class="whats">
 	<div class="wrapper">
-		<h2>What’s in PushClean?</h2>
+		<h2><?= $f['title']; ?></h2>
 		<div class="whats-content">
-			<div class="whats-img">
-				<img data-src="<?= get_template_directory_uri(); ?>/assets/img/whats-img-pet.png" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt=""
-				     class="js-img">
-			</div>
-			<div class="whats-item">
-				<div class="whats-item__img">
-					<img data-src="<?= get_template_directory_uri(); ?>/assets/img/icons/whats-icon1-pet.svg" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt=""
-					     class="js-img">
-				</div>
-				<div class="whats-item__info">
-					<span>Ingredients:</span>
-					<p>Water, Cocoamidoproply Betain, PEG-7 Glyceryl Cocoate, Propylene Glycol, Methylchloroisothiazone/ Methylisothiazonlinone, DMDM Hydantoin, Polysorbate 20, Essence</p>
-				</div>
-			</div>
-			<div class="whats-item">
-				<div class="whats-item__img">
-					<img data-src="<?= get_template_directory_uri(); ?>/assets/img/icons/whats-icon2-pet.svg" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt=""
-					     class="js-img">
-				</div>
-				<div class="whats-item__info">
-					<span>Description:</span>
-					<p>All Natural Towelettes, 100% Biodegradable, No CFC’s, (10” x 10.5”) Double Sided Towelettes</p>
-				</div>
-			</div>
-			<div class="whats-item">
-				<div class="whats-item__img">
-					<img data-src="<?= get_template_directory_uri(); ?>/assets/img/icons/whats-icon3-pet.svg" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt=""
-					     class="js-img">
-				</div>
-				<div class="whats-item__info">
-					<span>Contains:</span>
-					<p>Each tube consists of 12 Individually Packed double-sided Towelette</p>
-					<a href="#" class="btn btn-small">buy</a>
-				</div>
-			</div>
-		</div>
+            <div class="whats-img">
+                <img data-src="<?= $f['product_img']['url']; ?>" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="<?= $f['product_img']['alt']; ?>" class="js-img">
+            </div>
+			<?php if ( ! empty( $f['items'] ) ): ?>
+				<?php foreach ( $f['items'] as $items ): ?>
+                    <div class="whats-item">
+                        <div class="whats-item__img">
+                            <img data-src="<?= $items['img']['url']; ?>" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" alt="<?= $items['img']['alt']; ?>" class="js-img">
+                        </div>
+                        <div class="whats-item__info">
+                            <span><?= $items['title']; ?></span>
+                            <p><?= $items['desc']; ?></p>
+	                        <?php
+	                        if ( ! empty( $items['link'] ) ) {
+		                        echo "<a href=\"{$items['link']['url']}\" class=\"btn btn-small\" target=\"{$items['link']['target']}\">{$items['link']['title']}</a>";
+	                        }
+	                        ?>
+                        </div>
+                    </div>
+				<?php endforeach; ?>
+			<?php endif; ?>
+        </div>
 	</div>
+    <style>
+        .content .whats-img:before,
+        .content .whats-img:after,
+        .content .whats-item:before { background: <?= $f['color']; ?> !important; }
+        .content .whats-item:nth-child(3):after { border: 1px solid <?= $f['color']; ?> !important; border-left: none !important; }
+        .content .whats-item:last-of-type:after { border: 1px solid <?= $f['color']; ?> !important; border-right: none !important; }
+    </style>
 </section>
 <!-- WHATS EOF   -->
