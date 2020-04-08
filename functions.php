@@ -2,6 +2,7 @@
 define( 'VIEWS_DIR', get_template_directory() . '/template-parts/parts/' );
 require_once get_template_directory() . '/inc/Debug.php';
 require_once get_template_directory() . '/inc/core/theme-functions.php';
+require get_template_directory() . '/inc/translate.php';
 
 add_action( 'wp_head', 'pushclear_enqueue_style' );
 function pushclear_enqueue_style() {
@@ -17,12 +18,18 @@ function pushclear_enqueue_scripts() {
 	wp_register_script( 'jquery', $theme_uri . 'js/jquery-3.0.0.min.js', [], null, true );
 	wp_register_script( 'jq-migrate', $theme_uri . 'js/jquery-migrate-1.4.1.min.js', [], null, true );
 	wp_register_script( 'jq-maskedinput', $theme_uri . 'js/components/jquery.maskedinput.js', [], null, true );
+	wp_register_script( 'jq-mCustomScrollbar', $theme_uri . 'js/components/jquery.mCustomScrollbar.js', [], null, true );
+	wp_register_script( 'jq-formstyler', $theme_uri . 'js/components/jquery.formstyler.js', [], null, true );
 	wp_register_script( 'jq-validate', $theme_uri . 'js/components/jquery.validate.js', [], null, true );
 	wp_register_script( 'custom', $theme_uri . 'js/custom.js', [], null, true );
 	wp_enqueue_script( 'jquery' );
 	wp_enqueue_script( 'jq-migrate' );
 	wp_enqueue_script( 'jq-maskedinput' );
-	wp_enqueue_script( 'jq-validate' );
+	if( is_page_template('template-parts/template-order.php') ){
+		wp_enqueue_script( 'jq-formstyler' );
+		wp_enqueue_script( 'jq-mCustomScrollbar' );
+		wp_enqueue_script( 'jq-validate' );
+	}
 	wp_enqueue_script( 'custom' );
 }
 
