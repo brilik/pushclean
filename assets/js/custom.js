@@ -275,8 +275,6 @@ $(window).bind('resize', handler);
 
 function for_wordpress() {
 	language_polylang()
-	// form_ajax_sender()
-	// wpcf7_handler()
 	wpcf7_handler()
 }
 
@@ -302,6 +300,21 @@ function wpcf7_handler(){
         $(this).find('input').each(function (i,e) {
             $(this).css('border','1px solid #D3D3D3')
 		})
+
+		// redirect to order
+        var hasOrangeBodyClass = $('body').hasClass('page-template-template-landing-orange')
+        var hasGreenBodyClass = $('body').hasClass('page-template-template-landing-green')
+        var hasBlueBodyClass = $('body').hasClass('page-template-template-landing-blue')
+
+		if( $('#js-lang-page').text() === 'Eng' ) {
+			if ( hasOrangeBodyClass ) document.location.href = '/order-orange/'
+			else if ( hasGreenBodyClass ) document.location.href = '/order-green/'
+			else if ( hasBlueBodyClass ) document.location.href = '/order-blue/'
+		} else if( $('#js-lang-page').text() === 'Рус' ) {
+            if ( hasOrangeBodyClass ) document.location.href = '/ru/zakaz-oranjeviy/'
+            else if ( hasGreenBodyClass ) document.location.href = '/ru/zakaz-zeleniy/'
+            else if ( hasBlueBodyClass ) document.location.href = '/ru/zakaz-goluboy/'
+		}
 
     })
 
