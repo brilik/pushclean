@@ -99,7 +99,7 @@ function disable_plugin_deactivation( $actions, $plugin_file ) {
 	);
 	if ( in_array( $plugin_file, $important_plugins ) ) {
 		unset( $actions['deactivate'] );
-		$actions[ 'info' ] = '<b class="musthave_js">Обязателен для темы</b>';
+		$actions['info'] = '<b class="musthave_js">' . pll__( 'Required for theme' ) . '</b>';
 	}
 
 	return $actions;

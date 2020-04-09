@@ -22,3 +22,4 @@ pll_register_string( 'country', 'Germany', 'polylang', true );
 pll_register_string( 'country', 'Greece', 'polylang', true );
 pll_register_string( 'country', 'Ukraine', 'polylang', true );
 pll_register_string( 'country', 'Russia', 'polylang', true );
+pll_register_string( 'plugin', 'Required for theme', 'polylang', true );
