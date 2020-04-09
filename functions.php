@@ -85,3 +85,57 @@ function my_class_names( $classes ) {
 
 	return $classes;
 }
+
+// disable deactivate and remove plugins
+add_filter( 'plugin_action_links', 'disable_plugin_deactivation', 10, 2 );
+function disable_plugin_deactivation( $actions, $plugin_file ) {
+	// remove action "Edit"
+	unset( $actions['edit'] );
+
+	// remove action "Deactivate"
+	$important_plugins = array(
+		'advanced-custom-fields-pro/acf.php',
+		'polylang/polylang.php',
+	);
+	if ( in_array( $plugin_file, $important_plugins ) ) {
+		unset( $actions['deactivate'] );
+		$actions[ 'info' ] = '<b class="musthave_js">Обязателен для темы</b>';
+	}
+
+	return $actions;
+}
+
+// disable deactivate plugin on frontend
+add_filter( 'admin_print_footer_scripts-plugins.php', 'disable_plugin_deactivation_hide_checkbox' );
+function disable_plugin_deactivation_hide_checkbox( $actions ){
+	?>
+	<script>
+        jQuery(function($){
+            $('.musthave_js').closest('tr').find('input[type="checkbox"]').remove();
+        });
+	</script>
+	<?php
+}
+
+// disable update for plugins
+add_filter( 'site_transient_update_plugins', 'disable_plugin_updates' );
+function disable_plugin_updates( $value ) {
+
+	$pluginsToDisable = [
+		'advanced-custom-fields-pro/acf.php',
+	];
+
+	if ( isset($value) && is_object($value) ) {
+		foreach ($pluginsToDisable as $plugin) {
+			if ( isset( $value->response[$plugin] ) ) {
+				unset( $value->response[$plugin] );
+			}
+		}
+	}
+	return $value;
+}
+
+// change author in footer dashboard
+add_filter('admin_footer_text', function ()	{
+	echo '<span id="footer-thankyou">'.__('Сделано с любовью').'&nbsp;<a href="https://verstkovo.ru/"><b>Verstkovo</b></a></span>';
+});
