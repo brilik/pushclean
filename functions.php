@@ -78,3 +78,10 @@ function the_head_title(){
 
 	echo $res;
 }
+
+add_filter('body_class','my_class_names');
+function my_class_names( $classes ) {
+	$classes[] = 'language-' . pll_current_language('slug');
+
+	return $classes;
+}
