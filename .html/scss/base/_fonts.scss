@@ -1,0 +1,154 @@
+@font-face {
+	font-family: 'Roboto';
+	src: url('../fonts/Roboto/Roboto-Regular.eot');
+	src: url('../fonts/Roboto/Roboto-Regular.eot?#iefix') format('embedded-opentype'), 
+	url('../fonts/Roboto/Roboto-Regular.woff') format('woff'), 
+	url('../fonts/Roboto/Roboto-Regular.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+	font-stretch: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Roboto';
+	src: url('../fonts/Roboto/Roboto-Bold.eot');
+	src: url('../fonts/Roboto/Roboto-Bold.eot?#iefix') format('embedded-opentype'), 
+	url('../fonts/Roboto/Roboto-Bold.woff') format('woff'), 
+	url('../fonts/Roboto/Roboto-Bold.ttf') format('truetype');
+	font-weight: 700;
+	font-style: normal;
+	font-stretch: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'icomoon';
+	src:  url('../fonts/icomoon/icomoon.eot?g6g66v');
+	src:  url('../fonts/icomoon/icomoon.eot?g6g66v#iefix') format('embedded-opentype'),
+	  url('../fonts/icomoon/icomoon.ttf?g6g66v') format('truetype'),
+	  url('../fonts/icomoon/icomoon.woff?g6g66v') format('woff'),
+	  url('../fonts/icomoon/icomoon.svg?g6g66v#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+	font-display: block;
+  }
+  
+  [class^="icon-"], [class*=" icon-"] {
+	/* use !important to prevent issues with browser extensions that change fonts */
+	font-family: 'icomoon' !important;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+  
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+  }
+  
+  .icon-arrow-down:before {
+	content: "\e900";
+  }
+  .icon-check:before {
+	content: "\e901";
+	color: #96ce4a;
+  }
+  .icon-close:before {
+	content: "\e902";
+  }
+  .icon-whats-icon1 .path1:before {
+	content: "\e903";
+	color: rgb(150, 206, 74);
+  }
+  .icon-whats-icon1 .path2:before {
+	content: "\e904";
+	margin-left: -1em;
+	color: rgb(150, 206, 74);
+  }
+  .icon-whats-icon1 .path3:before {
+	content: "\e905";
+	margin-left: -1em;
+	color: rgb(50, 33, 83);
+  }
+  .icon-whats-icon1 .path4:before {
+	content: "\e906";
+	margin-left: -1em;
+	color: rgb(50, 33, 83);
+  }
+  .icon-whats-icon1 .path5:before {
+	content: "\e907";
+	margin-left: -1em;
+	color: rgb(50, 33, 83);
+  }
+  .icon-whats-icon1 .path6:before {
+	content: "\e908";
+	margin-left: -1em;
+	color: rgb(50, 33, 83);
+  }
+  .icon-whats-icon1 .path7:before {
+	content: "\e909";
+	margin-left: -1em;
+	color: rgb(50, 33, 83);
+  }
+  .icon-whats-icon1 .path8:before {
+	content: "\e90a";
+	margin-left: -1em;
+	color: rgb(50, 33, 83);
+  }
+  .icon-whats-icon1 .path9:before {
+	content: "\e90b";
+	margin-left: -1em;
+	color: rgb(50, 33, 83);
+  }
+  .icon-whats-icon1 .path10:before {
+	content: "\e90c";
+	margin-left: -1em;
+	color: rgb(50, 33, 83);
+  }
+  .icon-whats-icon2 .path1:before {
+	content: "\e90d";
+	color: rgb(50, 33, 83);
+  }
+  .icon-whats-icon2 .path2:before {
+	content: "\e90e";
+	margin-left: -1em;
+	color: rgb(50, 33, 83);
+  }
+  .icon-whats-icon2 .path3:before {
+	content: "\e90f";
+	margin-left: -1em;
+	color: rgb(150, 206, 74);
+  }
+  .icon-whats-icon2 .path4:before {
+	content: "\e910";
+	margin-left: -1em;
+	color: rgb(150, 206, 74);
+  }
+  .icon-whats-icon2 .path5:before {
+	content: "\e911";
+	margin-left: -1em;
+	color: rgb(150, 206, 74);
+  }
+  .icon-whats-icon2 .path6:before {
+	content: "\e912";
+	margin-left: -1em;
+	color: rgb(50, 33, 83);
+  }
+  .icon-whats-icon2 .path7:before {
+	content: "\e913";
+	margin-left: -1em;
+	color: rgb(50, 33, 83);
+  }
+  .icon-whats-icon3 .path1:before {
+	content: "\e914";
+	color: rgb(150, 206, 74);
+  }
+  .icon-whats-icon3 .path2:before {
+	content: "\e915";
+	margin-left: -1em;
+	color: rgb(50, 33, 83);
+  }
+  

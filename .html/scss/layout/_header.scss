@@ -1,0 +1,131 @@
+
+/*
+================================================================================
+|                                     HEADER                                   |
+================================================================================
+*/
+header {
+	width:100%;
+	min-width: $min-width;
+	text-align:left;	
+	order: 1;	
+    -webkit-order: 1;	
+}
+
+.header {
+	position: absolute;
+	left: 49px;
+	top: 49px;
+	&-content {
+		display: flex;
+		flex-direction: column;
+		max-width: 214px;
+	}
+	&-lang {
+		cursor: pointer;
+		position: relative;
+		width: 25px;
+		align-self: flex-end;
+		margin-right: 35px;
+		margin-top: 24px;
+		&__title {
+			font-size: 14px;
+			line-height: 16px;
+			color: #212121;
+			position: relative;
+			text-transform: uppercase;
+			&:after {
+				position: absolute;
+				right: -20px;
+				font-size: 12px;
+				top: 4px;
+				content: "\e900";
+				font-family: 'icomoon' !important;
+				speak: none;
+				font-style: normal;
+				font-weight: normal;
+				font-variant: normal;
+				text-transform: none;
+				line-height: 1;
+			}
+			&.active {
+				&:after {
+					top: 3px;
+					transform: rotate(-180deg);
+				}
+			}
+		}
+		.list-lang {
+			display: none;
+			position: absolute;
+			top: 38px;
+			width: 75px;
+			margin-left: -18px;
+			background-color: #fff;
+			text-align: center;
+			padding: 7px 0 6px 0;
+			border-radius: 2px;
+			line-height: 32px;
+			min-width: 75px;
+			z-index: 200;
+			max-height: 850px;
+			box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+			li {
+				margin-bottom: 0;
+				a {
+					font-size: 14px;
+					line-height: 16px;
+					color: #212121;
+					text-transform: uppercase;
+				}
+			}
+			&:before {
+				position: absolute;
+				top: -8px;
+				content: " ";
+				border-left: 8px dashed transparent;
+				border-right: 8px dashed transparent;
+				border-top: 0;
+				left: 50%;
+				transform: translate(-50%, 0);
+				border-bottom: 8px solid #fff;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 1200px) {
+	.header {
+		position: relative;
+		left: auto;
+		top: auto;
+		padding: 20px;
+		&-content {
+			flex-direction: row;
+			justify-content: space-between;
+			width: 100%;
+			max-width: 100%;
+			align-items: center;
+		}
+		&-lang {
+			margin-top: 0;
+			align-self: center;
+		}
+	}
+}
+
+@media screen and (min-width: 992px){
+	
+}
+
+@media screen and (max-width: 991px) {
+	
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+	
+}
+
+@media screen and (max-width: 767px) {
+	
+}

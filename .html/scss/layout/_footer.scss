@@ -1,0 +1,50 @@
+
+/*
+================================================================================
+|                                     FOOTER                                   |
+================================================================================
+*/
+footer {
+	text-align:left;
+	width:100%;
+	min-width: $min-width;
+	order: 3;	
+    -webkit-order: 3;	
+}
+
+.footer {
+	background: #0E0E0E;
+	padding: 14px 0 13px;
+	&-content {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 16px;
+		line-height: 28px;
+		color: #FFFFFF;
+		a {
+			color: #FFFFFF;
+			opacity: 0.5;
+			&:hover {
+				opacity: 1;
+			}
+		}
+		span {
+			margin: 0 3px;
+			opacity: 0.5;
+		}
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.footer {
+		padding-top: 32px;
+		padding-bottom: 32px;
+	}
+}
+
+@media screen and (max-width: 370px) {
+	.footer-content a {
+		font-size: 12px;
+	}
+}
